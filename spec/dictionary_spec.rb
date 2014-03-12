@@ -34,7 +34,7 @@ describe 'Term' do
     it 'edits a word that already exists in the term' do
       test_term = Term.create('dog', 'definition of dog')
       test_term.edit_word('English', 'doggy')
-
+      test_term.words[0].word.should eq 'doggy'
     end
   end
 
@@ -42,6 +42,7 @@ describe 'Term' do
     it 'edits a definition that already exists in the term' do
       test_term = Term.create('dog', 'definition of dog')
       test_term.edit_definition('English','four legged hairy creature')
+      test_term.definitions[0].definition.should eq 'four legged hairy creature'
     end
   end
 

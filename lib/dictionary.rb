@@ -24,11 +24,11 @@ class Term
     add_definition(definition)
   end
 
-  def add_definition(definition, language = 'English')
+  def add_definition(definition, language='English')
     @definitions << Definition.new(definition, language)
   end
 
-  def add_word(word, language = 'English')
+  def add_word(word, language='English')
     @words << Word.new(word, language)
   end
 
