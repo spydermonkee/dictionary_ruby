@@ -1,30 +1,34 @@
-require 'word'
-require 'definition'
+require './lib/word'
+require './lib/definition'
 
 class Term
 
-  @@Terms = []
+  @@terms = []
 
-  attr_reader :words, :definitions
+  attr_reader :words, :definitions,
+
+  def Term.terms
+    @@terms
+  end
 
   def Term.create(word, definition)
     term = Term.new(word, definition)
-    @@Terms << term
+    @@terms << term
     term
   end
 
   def initialize(word, definition)
     @words = []
     @definitions = []
-    add_word(word, 'English')
-    add_definition(definition, 'English')
+    add_word(word)
+    add_definition(definition)
   end
 
-  def add_definition(definition, language)
+  def add_definition(definition, language = 'English')
     @definitions << Definition.new(definition, language)
   end
 
-  def add_word(word, language)
+  def add_word(word, language = 'English')
     @words << Word.new(word, language)
   end
 
